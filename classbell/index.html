@@ -1,7 +1,39 @@
+
 <!DOCTYPE html>
 <html>
   <body>
+
+
+    
+    <audio preload="auto" id="classbell"><source src="School_Bell_Ringing_sound.mp3" type="audio/mp3"></audio>
+
+
+       
+    <script>    
+        
+        // window.setInterval(function, milliseconds);
+        
+        // var player = document.getElementById('classbell');
+        // setTimeout(function(){
+        //     player.play();
+        
+        //     setTimeout(function(){
+        //         player.pause();
+        //         player.currentTime = 0;
+        //     }, 2000);
+        // }, 1000);
+        
+        var player = document.getElementById('classbell');
+
+        player.setInterval( function(){
+            player.play();
+            setTimeout(function(){player.pause();}, 2000);
+        }, 10000);
+        
+
+        </script>
+
+
+
   </body>
 </html>
-  
-  
