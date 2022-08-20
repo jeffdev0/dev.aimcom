@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html>
   <body>
     <h1 id="h1_minit"></h1>
-    <audio id="classbell" preload="auto"><source src="School_Bell_Ringing_sound.mp3#t=1,5" type="audio/mp3"></audio>
-        <input type="button" value="Activate" onclick="activated(this)">
+    <audio id="classbell" controls=""  preload="auto"><source src="School_Bell_Ringing_sound.mp3#t=1,5" type="audio/mp3"></audio>
+
+    <br><br><input type="button" value="Activate" onclick="activated(this)">
 
     <script>
 
@@ -40,8 +40,8 @@
             player.muted = !player.muted;     
             player.currentTime = 2;
             player.play();
+            player.currentTime = 2;
             setTimeout(function(){player.pause();}, 5000);
-           player.currentTime = 2;
         }, time_interval);
         </script>
   </body>
