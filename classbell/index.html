@@ -17,8 +17,6 @@
 
         document.getElementById("h1_minit").innerHTML = minute_interval + " Minit"
 
-
-
         var time_interval = minute_interval*60*1000;
         var player = document.getElementById('classbell');
 
@@ -27,9 +25,11 @@
         console.log(minute_interval);
 
         // window.location.href.split("index")[1]).split("html")[0])
+        document.getElementsByTagName("body")[0].click();
 
         setInterval( function(){
-           player.currentTime = 2;
+            player.muted = !player.muted;     
+            player.currentTime = 2;
             player.play();
             setTimeout(function(){player.pause();}, 5000);
            player.currentTime = 2;
