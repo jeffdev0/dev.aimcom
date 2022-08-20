@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html>
   <body>
+    <h1 id="h1_minit"></h1>
     <audio preload="auto" id="classbell"><source src="School_Bell_Ringing_sound.mp3#t=1,5" type="audio/mp3"></audio>
+
     <script>
 
         //minute bell inteval (please change)
@@ -12,6 +14,9 @@
         var c_url = window.location.href;
         var minute_interval = c_url.split("?timer=")[1];
         // console.log(minute_interval);
+
+        document.getElementById("h1_minit").innerHTML = minute_interval + " Minit"
+
 
 
         var time_interval = minute_interval*60*1000;
