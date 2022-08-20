@@ -3,55 +3,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <body style="text-align: center;">
     <h1 id="h1_minit"></h1>
-    <audio id="classbell" controls=""  preload="auto"><source src="School_Bell_Ringing_sound.mp3#t=1,5" type="audio/mp3"></audio>
+    <audio id="classbell" controls="" preload="auto"><source src="School_Bell_Ringing_sound.mp3#t=4" type="audio/mp3"></audio>
+        <br><br>
+    <audio id="classbell2" autoplay="true" loop muted preload="auto"><source src="School_Bell_Ringing_sound.mp3#t=4" type="audio/mp3"></audio>
 
-    <br><br><input type="button" value="Activate" onclick="activated(this)">
+    <br><br>
+    
+    <input type="button" value="Activate" onclick="activated(this)" style="width: 100px; height: 50px;">
 
     <script>
-
-
         //minute bell inteval (please change)
         //var minute_interval = 1
 
         //get minute_interval from url
-        function activated(thisEL){ 
-            thisEL.value = "activated";
-            player.play();
-
-        }
 
         var c_url = window.location.href;
         var minute_interval = c_url.split("?t=")[1];
         // console.log(minute_interval);
 
         if (minute_interval==undefined){
-            console.log("dfg")
+            // console.log("dfg")
             minute_interval = 1
         }
 
 
         document.getElementById("h1_minit").innerHTML = minute_interval + " Minit"
 
+
         var time_interval = minute_interval*60*1000;
         var player = document.getElementById('classbell');
+        var player2 = document.getElementById('classbell2');
 
 
-        // amplifyMedia(player, 2);
-
+        function activated(thisEL){ 
+            thisEL.value = "activated";
+            player.currentTime = 3;
+            player.play();
+            player.muted = !player.muted;
+            player2.play();
+        }
+        
         var c_url = window.location.href;
         var minute_interval = c_url.split("index")[1].split(".html")[0];
         console.log(minute_interval);
 
-        // window.location.href.split("index")[1]).split("html")[0])
-        document.getElementsByTagName("body")[0].click();
+        // document.getElementsByTagName("body")[0].click();
 
         setInterval( function(){
-            player.muted = !player.muted;     
-            player.currentTime = 2;
+            player.currentTime = 3;
+            player.muted = !player.muted;
             player.play();
-            player.currentTime = 2;
-            setTimeout(function(){player.pause();}, 5000);
         }, time_interval);
+
         </script>
   </body>
 </html>
