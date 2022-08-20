@@ -5,22 +5,32 @@
 
 
 
-    <audio preload="auto" id="classbell"><source src="School_Bell_Ringing_sound.mp3" type="audio/mp3"></audio>
+    <audio preload="auto" id="classbell"><source src="School_Bell_Ringing_sound.mp3#t=1,5" type="audio/mp3"></audio>
 
 
        
     <script>    
         
-
+        // window.setInterval(function, milliseconds);
+        
+        // var player = document.getElementById('classbell');
+        // setTimeout(function(){
+        //     player.play();
+        
+        //     setTimeout(function(){
+        //         player.pause();
+        //         player.currentTime = 0;
+        //     }, 2000);
+        // }, 1000);
         
         var player = document.getElementById('classbell');
 
-        setInterval( function(){
-            player.currentTime = 1;
-            player.play();
-            setTimeout(function(){player.pause();}, 4000);
-            player.currentTime = 1;
-        }, 5000);
+        // setInterval( function(){
+        //     player.currentTime = 2;
+        //     player.play();
+        //     setTimeout(function(){player.pause();}, 3000);
+        //     player.currentTime = 2;
+        // }, 5000);
         
 
         </script>
