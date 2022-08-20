@@ -3,7 +3,8 @@
 <html>
   <body>
     <h1 id="h1_minit"></h1>
-    <audio id="classbell"><source src="School_Bell_Ringing_sound.mp3#t=1,5" type="audio/mp3"></audio>
+    <audio id="classbell" preload="auto"><source src="School_Bell_Ringing_sound.mp3#t=1,5" type="audio/mp3"></audio>
+        <input type="button" value="Activate" onclick="activated()">
 
     <script>
 
@@ -30,6 +31,8 @@
         //var minute_interval = 1
 
         //get minute_interval from url
+        function activated(){ this.value = "activated"}
+
         var c_url = window.location.href;
         var minute_interval = c_url.split("?t=")[1];
         // console.log(minute_interval);
@@ -39,7 +42,7 @@
         var time_interval = minute_interval*60*1000;
         var player = document.getElementById('classbell');
 
-//         amplifyMedia(player, 2);
+        // amplifyMedia(player, 2);
 
         var c_url = window.location.href;
         var minute_interval = c_url.split("index")[1].split(".html")[0];
