@@ -6,11 +6,22 @@
     <script>
 
         //minute bell inteval (please change)
-        var minute_interval = 30
+        //var minute_interval = 1
+
+        //get minute_interval from url
+        var c_url = window.location.href;
+        var minute_interval = c_url.split("?timer=")[1];
+        // console.log(minute_interval);
+
 
         var time_interval = minute_interval*60*1000;
         var player = document.getElementById('classbell');
 
+        var c_url = window.location.href;
+        var minute_interval = c_url.split("index")[1].split(".html")[0];
+        console.log(minute_interval);
+
+        // window.location.href.split("index")[1]).split("html")[0])
 
         setInterval( function(){
            player.currentTime = 2;
