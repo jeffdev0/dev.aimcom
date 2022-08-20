@@ -22,10 +22,17 @@
         var minute_interval = c_url.split("?t=")[1];
         // console.log(minute_interval);
 
+        if (minute_interval==undefined){
+            console.log("dfg")
+            minute_interval = 1
+        }
+
+
         document.getElementById("h1_minit").innerHTML = minute_interval + " Minit"
 
         var time_interval = minute_interval*60*1000;
         var player = document.getElementById('classbell');
+
 
         // amplifyMedia(player, 2);
 
