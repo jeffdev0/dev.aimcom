@@ -29,32 +29,41 @@
             minute_interval = 1
         }
 
-
         document.getElementById("h1_minit").innerHTML = minute_interval + " Minit"
-
 
         var time_interval = minute_interval*60*1000;
         var player = document.getElementById('classbell');
         var player2 = document.getElementById('classbell2');
 
-
+        // var time_interval = 1000*6;
+        
         function activated(thisEL){ 
             thisEL.value = "activated";
-            player.currentTime = 2;
+            player.currentTime = 3;
             player.play();
-            player.muted = !player.muted;
+            player.volume = "0";
+            // player.muted = !player.muted;
             player2.play();
-
         }
-        
-        setInterval(async function(){
-            player.currentTime = 2;
-            player.muted = !player.muted;
-            await player.play();
-        }, time_interval);
 
+        function ring(){
+            player.currentTime = 3;
+            player.volume = "1";
+            // player.muted = !player.muted;
+            player.play();
+        }
+    
+        function checktimeloop(){
+            var epochnow =  Math.round(Date.now()/1000);
+            if (epochnow % (time_interval/1000) == 0){
+                console.log("ok")
+                ring()
+            } else {console.log("no ring")}
+        }
 
-
+        setInterval (function(){
+            checktimeloop();
+        }, 1000);
 
         </script>
   </body>
