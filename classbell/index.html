@@ -24,7 +24,7 @@
         var minute_interval = c_url.split("?t=")[1];
         // console.log(minute_interval);
 
-        if (minute_interval==undefined){
+        if (isNaN(minute_interval)){
             // console.log("dfg")
             minute_interval = 1
         }
@@ -56,9 +56,10 @@
         function checktimeloop(){
             var epochnow =  Math.round(Date.now()/1000);
             if (epochnow % (time_interval/1000) == 0){
-                console.log("ok")
+                // console.log("ok")
                 ring()
-            } else {console.log("no ring")}
+            } 
+            // else {console.log("no ring")}
         }
 
         setInterval (function(){
