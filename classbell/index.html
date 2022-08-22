@@ -37,14 +37,6 @@
 
         // var time_interval = 1000*6;
         
-        function activated(thisEL){ 
-            thisEL.value = "activated";
-            player.currentTime = 3;
-            player.play();
-            player.volume = "0";
-            // player.muted = !player.muted;
-            player2.play();
-        }
 
         function ring(){
             player.currentTime = 3;
@@ -55,16 +47,40 @@
     
         function checktimeloop(){
             var epochnow =  Math.round(Date.now()/1000);
-            if (epochnow % (time_interval/1000) == 0){
+            var t_interval = time_interval/1000
+            if (epochnow % (t_interval) == 0){
+
+                document.getElementById("countdown").innerHTML = "0 s"
+
                 // console.log("ok")
                 ring()
             } 
-            // else {console.log("no ring")}
+            else {
+                var nextl = Math.ceil(epochnow/t_interval);
+                var nexttime = t_interval * nextl
+                var timeleft = nexttime-epochnow
+                document.getElementById("countdown").innerHTML = timeleft + " s"
+
+                console.log(nexttime-epochnow)
+
+            }    // console.log("no ring")}
         }
 
-        setInterval (function(){
-            checktimeloop();
-        }, 1000);
+        function activated(thisEL){ 
+            thisEL.value = "activated";
+            player.currentTime = 3;
+            player.play();
+            player.volume = "0";
+            // player.muted = !player.muted;
+            player2.play();
+
+            setInterval (function(){
+                checktimeloop();
+            }, 1000);
+        }
+
+
+
 
         </script>
   </body>
