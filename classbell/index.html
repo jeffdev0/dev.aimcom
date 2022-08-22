@@ -15,17 +15,12 @@
     <input type="button" value="Activate" onclick="activated(this)" style="width: 100px; height: 50px;">
 
     <script>
-        //minute bell inteval (please change)
-        //var minute_interval = 1
-
-        //get minute_interval from url
 
         var c_url = window.location.href;
         var minute_interval = c_url.split("?t=")[1];
         // console.log(minute_interval);
 
         if (isNaN(minute_interval)){
-            // console.log("dfg")
             minute_interval = 1
         }
 
@@ -37,7 +32,6 @@
 
         // var time_interval = 1000*6;
         
-
         function ring(){
             player.currentTime = 3;
             player.volume = "1";
@@ -49,10 +43,8 @@
             var epochnow =  Math.round(Date.now()/1000);
             var t_interval = time_interval/1000
             if (epochnow % (t_interval) == 0){
-
                 document.getElementById("countdown").innerHTML = "0 s"
-
-                // console.log("ok")
+                // console.log("ring")
                 ring()
             } 
             else {
@@ -60,10 +52,9 @@
                 var nexttime = t_interval * nextl
                 var timeleft = nexttime-epochnow
                 document.getElementById("countdown").innerHTML = timeleft + " s"
-
                 console.log(nexttime-epochnow)
-
-            }    // console.log("no ring")}
+                // console.log("no ring")}
+            }   
         }
 
         function activated(thisEL){ 
@@ -71,16 +62,12 @@
             player.currentTime = 3;
             player.play();
             player.volume = "0";
-            // player.muted = !player.muted;
             player2.play();
 
             setInterval (function(){
                 checktimeloop();
             }, 1000);
         }
-
-
-
 
         </script>
   </body>
