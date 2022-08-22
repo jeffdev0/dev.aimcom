@@ -44,7 +44,7 @@
             var epochnow =  Math.round(Date.now()/1000);
             var t_interval = time_interval/1000
             if (epochnow % (t_interval) == 0){
-                document.getElementById("countdown").innerHTML = "dalam " + "0 s"
+                document.getElementById("countdown").innerHTML = "dalam " + "0s"
                 // console.log("ring")
                 ring()
             } 
@@ -52,7 +52,7 @@
                 var nextl = Math.ceil(epochnow/t_interval);
                 var nexttime = t_interval * nextl
                 var timeleft = nexttime-epochnow
-                document.getElementById("countdown").innerHTML = "dalam " + timeleft + " s"
+                document.getElementById("countdown").innerHTML = "dalam " + timeleft + "s"
                 console.log(nexttime-epochnow)
                 // console.log("no ring")}
             }   
