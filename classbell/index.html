@@ -13,6 +13,7 @@
     <br><br>
     
     <input type="button" value="Activate" onclick="activated(this)" style="width: 100px; height: 50px;">
+    <style>.activated {color: white; background-color: green;}</style>
 
     <script>
 
@@ -24,7 +25,7 @@
             minute_interval = 1
         }
 
-        document.getElementById("h1_minit").innerHTML = minute_interval + " Minit"
+        document.getElementById("h1_minit").innerHTML = minute_interval + " Minit seterusnya"
 
         var time_interval = minute_interval*60*1000;
         var player = document.getElementById('classbell');
@@ -43,7 +44,7 @@
             var epochnow =  Math.round(Date.now()/1000);
             var t_interval = time_interval/1000
             if (epochnow % (t_interval) == 0){
-                document.getElementById("countdown").innerHTML = "0 s"
+                document.getElementById("countdown").innerHTML = "dalam " + "0 s"
                 // console.log("ring")
                 ring()
             } 
@@ -51,7 +52,7 @@
                 var nextl = Math.ceil(epochnow/t_interval);
                 var nexttime = t_interval * nextl
                 var timeleft = nexttime-epochnow
-                document.getElementById("countdown").innerHTML = timeleft + " s"
+                document.getElementById("countdown").innerHTML = "dalam " + timeleft + " s"
                 console.log(nexttime-epochnow)
                 // console.log("no ring")}
             }   
@@ -59,6 +60,8 @@
 
         function activated(thisEL){ 
             thisEL.value = "activated";
+            thisEL.className = "activated";
+
             player.currentTime = 3;
             player.play();
             player.volume = "0";
